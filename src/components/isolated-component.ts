@@ -2,9 +2,9 @@ import { VNode } from "../vnode";
 
 /**
  * Isolated component base class.
- * Components extending this cannot recieve props nor context.
+ * Components extending this cannot recieve props nor have access to the Application instance.
  * Expected use case is interative components that operate independently.
- * Gains include better performance and 
+ * This presents significant performance gains as the only trigger for work is events the component is listening too.
  */
 export abstract class IsolatedComponent<TState extends object = {}> {
     /**
@@ -24,17 +24,11 @@ export abstract class IsolatedComponent<TState extends object = {}> {
     /**
      * Set component state.
      * @param state New state.
-     * 
-     * @todo How will we handle calling setState when stateQueue is being processed?
-     * State could be set from an async context too. Need to lock somehow without loosing order.
-     * Another queue?
-     * Can always chain only a resolved promise.
-     * Maybe a function can help?
-     * Should it be located in here?
      */
     protected setState(getState: (state: TState) => TState): void {
         this.stateQueue.push(getState);
         // TODO Need to somehow tell system to queue up work
+        // Using an abstraction around the app class might be the solution.
     }
 
     /**
