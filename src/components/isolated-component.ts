@@ -1,5 +1,3 @@
-import { VNode } from "../vnode";
-
 /**
  * Isolated component base class.
  * Components extending this cannot recieve props nor have access to the Application instance.
@@ -57,8 +55,8 @@ export abstract class IsolatedComponent<TState extends object = {}> {
     public willUnmount?(): void;
 
     /**
-     * Emits components' virtual node tree.
+     * Renders components' virtual node tree.
      * @param state Components' current state.
      */
-    public abstract emit(state: TState): VNode;
+    public abstract render(state: TState);
 }

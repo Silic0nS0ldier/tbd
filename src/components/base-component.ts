@@ -1,16 +1,10 @@
 import { IsolatedComponent } from "./isolated-component";
 import { Application } from "../application";
 
-interface IStateProps<TProps> {
-    props: TProps;
-}
-
-type TStateWithProps<TState, TProps> = TState & IStateProps<TProps>;
-
 /**
  * Component base class.
  */
-export abstract class Component<TState = object, TProps extends object = object, TApplication extends Application = Application> extends IsolatedComponent<TStateWithProps<TState, TProps>> {
+export abstract class BaseComponent<TState = object, TProps extends object = object, TApp extends Application = Application> extends IsolatedComponent<TState & { props: TProps }> {
     
     /**
      * Set components properties.

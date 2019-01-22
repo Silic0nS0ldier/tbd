@@ -39,3 +39,4 @@
   - Do we need an analogue to `FORCE_RENDER`?
   - Make it impossible to force a render as it indicates an anti-pattern.
   - What if props went into state? Reduce amount of code? Prop changes do indicate state changes after all. Could also translate to less object recreation.
+  - How do we want to handle things like a router? Is type-safety even possible?

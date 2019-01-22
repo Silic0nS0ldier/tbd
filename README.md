@@ -1,7 +1,7 @@
 # tbd
 
 ```tsx
-import { Application, Component as BaseComponent } from "tbd";
+import { Application, BaseComponent } from "tbd";
 
 /**
  * Define App class where you can initialse global state and other globally useful information.
@@ -13,7 +13,7 @@ class App extends Application {
 
 /**
  * Extend base component class to provide type hinting for extended Application class.
- * Can also add in own helper methods.
+ * Can also add in own helper methods. Access to the Application instance means no need for `connect` wrapper functions.
  */
 export abstract class Component<TState, TProps> extends BaseComponent<TState, TProps, App> {}
 
