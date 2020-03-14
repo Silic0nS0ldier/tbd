@@ -33,3 +33,14 @@ class Main extends Component<object, object> {
 // Start app
 new App().start(document.body, <Main />);
 ```
+
+```tsx
+interface IComponent
+{
+    /**
+     * @param props Component properties
+     * @param ref Reference for component instance, used for invoking lifecycle methods
+     */
+    <TProps>(props: TProps, ref: string): () => {};
+}
+```
