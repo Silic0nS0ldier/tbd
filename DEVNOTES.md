@@ -40,3 +40,5 @@
   - Make it impossible to force a render as it indicates an anti-pattern.
   - What if props went into state? Reduce amount of code? Prop changes do indicate state changes after all. Could also translate to less object recreation.
   - How do we want to handle things like a router? Is type-safety even possible?
+  - We can fairly easily associate elements with their parent component due to how the rendering works.
+    Internally `render` is called manually, so at first the node tree only decendes till the first components.
